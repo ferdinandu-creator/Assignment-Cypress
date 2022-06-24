@@ -99,16 +99,16 @@ describe('Start here', () => {
                   });
 
             it('search numbers of bot', () => {
-                    cy.server()
-
+                   cy.server()
                    cy.fixture('bot.json').then(  file => {
                     const numberOfBoots = file.data.presentations.total
-                   cy.route('POST', '**/presentation*','file')
-                   })
+                   cy.route('POST', '**/presentation*',file)
 
-                   cy.get('[data-testid="presentationList"]').then (listOfItem => {
-                   expect(listOfItem[0]).to.contain ('numberOfBoots')
-
+                   cy.get('body').then (listOfItem => {
+                   expect(listOfItem).to.contain (numberOfBoots)
+                   //*[@class='PresentationRowsc__PresentationRowWrapper-sc-1o86idr-0 biwvdi']
+                   cy.get('[data-testid^=presentationList]').its('length').should('eq',numberOfBoots)
+                             })
                        })
 
                   });
