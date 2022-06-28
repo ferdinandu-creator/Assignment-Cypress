@@ -107,7 +107,9 @@ describe('Start here', () => {
                    cy.get('body').then (listOfItem => {
                    expect(listOfItem).to.contain (numberOfBoots)
                    //*[@class='PresentationRowsc__PresentationRowWrapper-sc-1o86idr-0 biwvdi']
-                   cy.get('[data-testid^=presentationList]').its('length').should('eq',numberOfBoots)
+                   //cy.get('[data-testid^=presentationList]').its('length').should('eq',numberOfBoots)
+                   //cy.get ('[data-testid^=presentationList]').should ('include.text','Bot')
+                   cy.get('[data-testid="presentationList"] > ').its('length').should('eq',numberOfBoots)
                              })
                        })
 
