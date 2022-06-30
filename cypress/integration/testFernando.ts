@@ -35,12 +35,14 @@ describe('Start here', () => {
    it('presentation based on', () => {
     cy.get(':nth-child(3) > .FieldLabelsc__StyledFieldLabel-sc-1be16qd-0')
       .contains('Customer')
+      .should("have.text", "Customer")
       .click()
     });
 
    it('select costumerTye', () => {
         cy.get('[data-testid="customerSearchBoxList"] > :nth-child(1) > :nth-child(1)')
-        cy.contains('South')
+          .contains('South')
+          .should("have.text","South Jacintoside (location1196)")
           .click()
         });
 
@@ -54,8 +56,10 @@ describe('Start here', () => {
 
    it('Select Season', () => {
         cy.get(':nth-child(5) > .DropdownMenusc__StyledDropdownMenuContent-sc-1gvbwbj-0 > .DropdownTriggersc__StyledDropdownTrigger-sc-ih66vr-0')
+           .should('have.text', 'Select Season')
            .click()
-           .get('[style="will-change: transform; transform: translateY(0px); max-height: calc(26rem);"] > [data-testid="dropdown-list"] > :nth-child(1)')
+           //.get('[style="will-change: transform; transform: translateY(0px); max-height: calc(26rem);"] > [data-testid="dropdown-list"] > :nth-child(1)')
+           .get('button').should('have.class','ClickableItemsc__StyledClickableItem-sc-jvfv9r-0 zSiws').contains('Ss 2025 570')
            .click()
         });
 
